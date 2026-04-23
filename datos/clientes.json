@@ -1,0 +1,17 @@
+[
+  {
+    "id": "C001",
+    "nombre": "Ana García",
+    "trust_score": 85
+  },
+  {
+    "id": "C002",
+    "nombre": "Luis Martínez",
+    "trust_score": 45
+  },
+  {
+    "id": "C003",
+    "nombre": "Sofía Ruiz",
+    "trust_score": 95
+  }
+]

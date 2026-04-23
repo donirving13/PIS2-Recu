@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block titulo %} — Reservaciones{% endblock %}
+
+{% block contenido %}
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;">
+  <div>
+    <h1>Reservaciones</h1>
+    <p class="subtitulo" style="margin-bottom:0">Historial de reservas confirmadas</p>
+  </div>
+  <a href="/reservar" class="btn btn-dorado">+ Nueva reserva</a>
+</div>
+
+{% if reservaciones %}
+{% set clientes_dict = {} %}
+{% for c in clientes %}{% set _ = clientes_dict.update({c.id: c}) %}{% endfor %}
+
+<div class="tabla-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Cliente</th>
+        <th>Establecimiento</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Personas</th>
+        <th>Registrada</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in reservaciones %}
+      {% set cliente = clientes_dict.get(r.cliente_id) %}
+      <tr>
+        <td style="color:#555">{{ r.id }}</td>
+        <td>
+          {{ cliente.nombre if cliente else r.cliente_id }}
+          {% if cliente %}
+          <br><span style="color:#555;font-size:0.78rem">Score: {{ cliente.trust_score }}</span>
+          {% endif %}
+        </td>
+        <td><strong style="color:var(--crema)">{{ r.establecimiento }}</strong></td>
+        <td>{{ r.fecha }}</td>
+        <td>{{ r.hora }}</td>
+        <td>{{ r.personas }}</td>
+        <td style="color:#555;font-size:0.82rem">{{ r.creada_en }}</td>
+        <td><span class="badge badge-verde">Confirmada</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="vacio">
+  <p>No hay reservaciones confirmadas aún.</p>
+  <a href="/reservar" class="btn btn-dorado">Hacer la primera</a>
+</div>
+{% endif %}
+{% endblock %}

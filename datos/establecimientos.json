@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "nombre": "La Taberna de Moe",
+    "ubicacion": "Calle Walnut, esquina con la calle 4",
+    "horario": "Martes - Domingo 13-22 hrs",
+    "capacidad": 70,
+    "umbral_trust": 0,
+    "descripcion": "Es el bar local de Springfield, propiedad de Moe Szyslak, caracterizado por ser un lugar sombrío y de ambiente decadente.",
+    "registrado_en": "2026-04-21 15:31"
+  },
+  {
+    "id": 2,
+    "nombre": "Krusty Burger",
+    "ubicacion": "cerca del Kwik-E-Mart o en la zona de comida rápida de la ciudad.",
+    "horario": "Lun - Dom 11 - 22pm",
+    "capacidad": 100,
+    "umbral_trust": 10,
+    "descripcion": "Krusty Burger es la cadena de comida rápida más famosa (y peligrosa para la salud) de Springfield.",
+    "registrado_en": "2026-04-21 15:34"
+  },
+  {
+    "id": 3,
+    "nombre": "Crustáceo Cascarudo",
+    "ubicacion": "Se encuentra en la ciudad de Fondo de Bikini, específicamente en la calle 831 de la Vía Coral. Está situado justo frente al Balde de Carnada",
+    "horario": "Lun - Dom 9 - 22pm",
+    "capacidad": 58,
+    "umbral_trust": 0,
+    "descripcion": "Tiene la forma de un cofre del tesoro con ventanas redondas. Por dentro, el suelo es de madera, tiene mesas en forma de timón y un bote de madera que sirve como caja registradora. Es mundialmente conocido por vender la Cangreburger",
+    "registrado_en": "2026-04-21 15:36"
+  },
+  {
+    "id": 4,
+    "nombre": "Gusteau’s",
+    "ubicacion": "5 Rue de l'Auguste, París, Francia",
+    "horario": "Martes - Domingo 9-22 hrs",
+    "capacidad": 67,
+    "umbral_trust": 96,
+    "descripcion": "Es el epítome de la alta cocina francesa. Originalmente un restaurante de 5 estrellas, es elegante, lujoso y con una decoración clásica parisina.",
+    "registrado_en": "2026-04-21 15:38"
+  }
+]

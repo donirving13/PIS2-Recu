@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block titulo %} — Inicio{% endblock %}
+
+{% block contenido %}
+<style>
+  .hero {
+    text-align: center;
+    padding: 5rem 2rem 4rem;
+  }
+  .hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  .hero p {
+    color: #888;
+    font-size: 1.05rem;
+    max-width: 500px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+  }
+  .tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .tarjeta {
+    background: var(--gris);
+    border: 1px solid #2e2e2e;
+    border-radius: 10px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .tarjeta:hover { border-color: var(--dorado); transform: translateY(-3px); }
+  .tarjeta .icono { font-size: 2rem; margin-bottom: 1rem; }
+  .tarjeta h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--dorado);
+    margin-bottom: 0.5rem;
+  }
+  .tarjeta p { color: #777; font-size: 0.85rem; line-height: 1.5; }
+  .linea-dorada {
+    width: 60px;
+    height: 2px;
+    background: var(--dorado);
+    margin: 1.5rem auto;
+  }
+  .clientes-preview {
+    margin-top: 4rem;
+    background: var(--gris);
+    border: 1px solid #2e2e2e;
+    border-radius: 10px;
+    padding: 2rem;
+  }
+  .clientes-preview h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--dorado);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+  .cliente-fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #222;
+  }
+  .cliente-fila:last-child { border-bottom: none; }
+  .cliente-nombre { font-size: 0.95rem; }
+  .score-bar-wrap { display: flex; align-items: center; gap: 0.8rem; }
+  .score-bar {
+    width: 120px;
+    height: 6px;
+    background: #1c1c1c;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--dorado), var(--dorado2));
+  }
+  .score-num { font-size: 0.8rem; color: var(--dorado2); font-weight: 600; min-width: 2.5rem; }
+</style>
+
+<div class="hero">
+  <h1>Re<span style="color:var(--crema)">VIP</span></h1>
+  <div class="linea-dorada"></div>
+  <p>Plataforma de reservaciones exclusivas. Tu Trust Score es la llave que abre las puertas de los mejores lugares.</p>
+  <a href="/reservar" class="btn btn-dorado">Hacer una Reservación</a>
+</div>
+
+<div class="tarjetas">
+  <a href="/registrar-establecimiento" class="tarjeta">
+    <div class="icono">🏛️</div>
+    <h3>Registrar Establecimiento</h3>
+    <p>Da de alta tu local y define el mínimo de Trust Score para tus reservas.</p>
+  </a>
+  <a href="/reservar" class="tarjeta">
+    <div class="icono">🔐</div>
+    <h3>Realizar Reservación</h3>
+    <p> Realiza tus reservaciones en los establecimientos más solicitados.</p>
+    
+  </a>
+  <a href="/establecimientos" class="tarjeta">
+    <div class="icono">✦</div>
+    <h3>Ver Establecimientos</h3>
+    <p>Explora los locales disponibles y sus requisitos de acceso.</p>
+  </a>
+</div>
+
+<div class="clientes-preview">
+  <h2>Clientes del Sistema</h2>
+  <div class="cliente-fila">
+    <span class="cliente-nombre">Ana García <span style="color:#555;font-size:0.8rem">(C001)</span></span>
+    <div class="score-bar-wrap">
+      <div class="score-bar"><div class="score-bar-fill" style="width:85%"></div></div>
+      <span class="score-num">85</span>
+    </div>
+  </div>
+  <div class="cliente-fila">
+    <span class="cliente-nombre">Luis Martínez <span style="color:#555;font-size:0.8rem">(C002)</span></span>
+    <div class="score-bar-wrap">
+      <div class="score-bar"><div class="score-bar-fill" style="width:45%"></div></div>
+      <span class="score-num">45</span>
+    </div>
+  </div>
+  <div class="cliente-fila">
+    <span class="cliente-nombre">Sofía Ruiz <span style="color:#555;font-size:0.8rem">(C003)</span></span>
+    <div class="score-bar-wrap">
+      <div class="score-bar"><div class="score-bar-fill" style="width:95%"></div></div>
+      <span class="score-num">95</span>
+    </div>
+  </div>
+</div>
+{% endblock %}

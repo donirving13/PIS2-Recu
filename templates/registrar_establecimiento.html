@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block titulo %} — Registrar Establecimiento{% endblock %}
+
+{% block contenido %}
+<h1>Registrar Establecimiento</h1>
+
+
+<div class="form-card">
+  <form method="POST">
+
+    <div class="campo">
+      <label for="nombre">Nombre del establecimiento</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Ej. Pujol, Quintonil…" required>
+    </div>
+
+    <div class="campo">
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" name="descripcion" placeholder="Describe el ambiente, tipo de cocina, etc." required></textarea>
+    </div>
+
+    <div class="fila-doble">
+      <div class="campo">
+        <label for="ubicacion">Ubicación</label>
+        <input type="text" id="ubicacion" name="ubicacion" placeholder="Ej. Polanco, CDMX" required>
+      </div>
+      <div class="campo">
+        <label for="horario">Horario de operación</label>
+        <input type="text" id="horario" name="horario" placeholder="Ej. Lun–Dom 14:00–23:00" required>
+      </div>
+    </div>
+
+    <div class="fila-doble">
+      <div class="campo">
+        <label for="capacidad">Capacidad (personas)</label>
+        <input type="number" id="capacidad" name="capacidad" min="1" max="500" placeholder="Ej. 60" required>
+      </div>
+      <div class="campo">
+        <label for="umbral_trust">Umbral mínimo de Trust Score (0–100)</label>
+        <input type="number" id="umbral_trust" name="umbral_trust" min="0" max="100" placeholder="Ej. 70" required>
+      </div>
+    </div>
+
+    <p style="color:#666;font-size:0.8rem;margin-top:-0.5rem;margin-bottom:1.5rem;">
+      Solo los clientes con Trust Score mayor o igual al umbral podrán reservar en este establecimiento.
+    </p>
+
+    <div class="acciones">
+      <button type="submit" class="btn btn-dorado">Registrar establecimiento</button>
+      <a href="/establecimientos" class="btn btn-borde">Ver lista</a>
+    </div>
+
+  </form>
+</div>
+{% endblock %}
