@@ -1,8 +1,3 @@
-"""
-ReVIP - Plataforma de Reservaciones con Trust Score
-Patrón de Diseño: Proxy (Control de Acceso)
-"""
-
 from flask import Flask, render_template, request, redirect, url_for, flash
 import json
 import os
@@ -31,13 +26,13 @@ def guardar(ruta, datos):
 # ═══════════════════════════════════════════════════════════════════════════════
 
 class IServicioReserva:
-    """Interfaz común para Proxy y Servicio Real."""
+   
     def solicitar_reserva(self, datos):
         raise NotImplementedError
 
 
 class ServicioReservaReal(IServicioReserva):
-    """Registra la reservación una vez que el Proxy autoriza el acceso."""
+   
     def solicitar_reserva(self, datos):
         reservaciones = cargar(RUTA_RESERVACIONES)
         nueva = {
@@ -55,10 +50,7 @@ class ServicioReservaReal(IServicioReserva):
 
 
 class ReservaProxy(IServicioReserva):
-    """
-    Proxy de Protección: intercepta la solicitud, valida el Trust Score
-    y solo delega al ServicioReservaReal si el cliente es apto.
-    """
+
     def __init__(self):
         self._servicio_real = ServicioReservaReal()
 
