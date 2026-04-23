@@ -89,7 +89,7 @@ class ReservaProxy(IServicioReserva):
 
         return self._servicio_real.solicitar_reserva(datos)
 
-
+  
 # ═══════════════════════════════════════════════════════════════════════════════
 #  RUTAS
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -164,9 +164,17 @@ def realizar_reservacion():
 
 @app.route("/reservaciones")
 def lista_reservaciones():
-    reservaciones    = cargar(RUTA_RESERVACIONES)
-    clientes         = cargar(RUTA_CLIENTES)
-    return render_template("lista_reservaciones.html", reservaciones=reservaciones, clientes=clientes)
+    reservaciones = cargar(RUTA_RESERVACIONES)
+    clientes      = cargar(RUTA_CLIENTES)
+
+    
+    clientes_dict = {c["id"]: c for c in clientes}
+
+    return render_template(
+        "lista_reservaciones.html",
+        reservaciones=reservaciones,
+        clientes_dict=clientes_dict
+    )
 
 
 def inicializar_datos():

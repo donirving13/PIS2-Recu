@@ -2,12 +2,16 @@
 {% block titulo %} — Establecimientos{% endblock %}
 
 {% block contenido %}
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;">
+<div class="header-flex">
   <div>
     <h1>Establecimientos</h1>
-    <p class="subtitulo" style="margin-bottom:0">Locales registrados en la plataforma ReVIP</p>
+    <p class="subtitulo subtitulo-sin-margen">
+      Locales registrados en la plataforma ReVIP
+    </p>
   </div>
-  <a href="/registrar-establecimiento" class="btn btn-dorado">+ Registrar nuevo</a>
+  <a href="/registrar-establecimiento" class="btn btn-dorado">
+    + Registrar nuevo
+  </a>
 </div>
 
 {% if establecimientos %}
@@ -26,16 +30,24 @@
     <tbody>
       {% for e in establecimientos %}
       <tr>
-        <td><strong style="color:var(--crema)">{{ e.nombre }}</strong>
+        <td>
+          <strong class="texto-principal">{{ e.nombre }}</strong>
+
           {% if e.descripcion %}
-          <br><span style="color:#666;font-size:0.8rem">{{ e.descripcion[:60] }}{% if e.descripcion|length > 60 %}…{% endif %}</span>
+          <br>
+          <span class="texto-secundario">
+            {{ e.descripcion[:60] }}{% if e.descripcion|length > 60 %}…{% endif %}
+          </span>
           {% endif %}
         </td>
+
         <td>{{ e.ubicacion }}</td>
         <td>{{ e.horario }}</td>
         <td>{{ e.capacidad }} personas</td>
-        <td><span class="badge badge-dorado">≥ {{ e.umbral_trust }}</span></td>
-        <td style="color:#555;font-size:0.82rem">{{ e.registrado_en }}</td>
+        <td>
+          <span class="badge badge-dorado">≥ {{ e.umbral_trust }}</span>
+        </td>
+        <td class="texto-terciario">{{ e.registrado_en }}</td>
       </tr>
       {% endfor %}
     </tbody>
@@ -44,7 +56,9 @@
 {% else %}
 <div class="vacio">
   <p>No hay establecimientos registrados aún.</p>
-  <a href="/registrar-establecimiento" class="btn btn-dorado">Registrar el primero</a>
+  <a href="/registrar-establecimiento" class="btn btn-dorado">
+    Registrar el primero
+  </a>
 </div>
 {% endif %}
 {% endblock %}
