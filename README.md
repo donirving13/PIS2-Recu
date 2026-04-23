@@ -39,8 +39,7 @@ http://127.0.0.1:5000
 ## Estructura del Proyecto
 ```
 revip/
-├── app.py                  # Aplicación Flask + Patrón Proxy
-├── requirements.txt
+├── app.py                  
 ├── datos/
 │   ├── clientes.json
 │   ├── establecimientos.json
